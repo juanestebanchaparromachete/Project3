@@ -5,7 +5,22 @@ import { Tasks } from '/imports/api/tasks.jsx';
 import ReactDOM from 'react-dom';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import { Meteor } from 'meteor/meteor';
+import { Router, Route } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
+const browserHistory = createBrowserHistory();
+
+export const renderRoutes = () => (
+  <Router history={browserHistory}>
+    <div>
+      <Route exact path="/" component={App}/>
+      <Route path="*" component={NotFound}/>
+    </div>
+  </Router>
+);
+
+const NotFound = () => (
+  <h1>404.. This page is not found!</h1>);
 // App component - represents the whole app
 class App extends Component {
 
