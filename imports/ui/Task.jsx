@@ -30,9 +30,9 @@ export default class Task extends Component {
       <div className="col-md-4 mb-4">
         <div className="card h-100">
           <div className="card-body">
-            <h2 className="card-title">{this.props.name}</h2>
-            <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam,
-              maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+            <h2 className="card-title">{this.props.task.name}</h2>
+            <img className="card-img-top" src={this.props.task.thumbnail} alt="Imagen descriptiva proyecto"/>
+            <p className="card-text">{this.props.task.slogan}</p>
           </div>
           <div className="card-footer">
             <a href="#" className="btn btn-primary">More Info</a>

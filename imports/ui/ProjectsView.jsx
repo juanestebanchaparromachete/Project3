@@ -36,8 +36,6 @@ class ProjectsView extends Component {
         <Task
           key={task._id}
           task={task}
-          name={task.name}
-          showPrivateButton={showPrivateButton}
         />
       );
     });
@@ -63,8 +61,11 @@ class ProjectsView extends Component {
             <img className="img-fluid rounded" src="http://placehold.it/900x400" alt=""/>
           </div>
           <div className="col-lg-4">
-            <h1>Business Name or Tagline</h1>
-            <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
+            <h1>Proyectos activos</h1>
+            <b>Haz parte de la cultura innovadora Uniandina</b>
+            <p>Te presentamos los proyectos de innovación en desarrollo en la Universidad de los Andes.
+              ¡Puedes aportar en el desarrollo de estos proyectos comentando ideas, aportando recursos o te
+              puedes unir al equipo de trabajo!</p>
             <a className="btn btn-primary btn-lg" href="#">Call to Action!</a>
           </div>
         </div>
