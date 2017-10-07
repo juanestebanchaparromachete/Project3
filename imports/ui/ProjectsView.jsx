@@ -62,7 +62,7 @@ class ProjectsView extends Component {
           </div>
           <div className="col-lg-4">
             <h1>Proyectos activos</h1>
-            <b>Haz parte de la cultura innovadora Uniandina</b>
+            <i id="sl">Haz parte de la cultura innovadora Uniandina</i>
             <p>Te presentamos los proyectos de innovación en desarrollo en la Universidad de los Andes.
               ¡Puedes aportar en el desarrollo de estos proyectos comentando ideas, aportando recursos o te
               puedes unir al equipo de trabajo!</p>
