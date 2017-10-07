@@ -61,8 +61,8 @@ class IdeasView extends Component {
             <img className="img-fluid rounded" src="http://placehold.it/900x400" alt=""/>
           </div>
           <div className="col-lg-4">
-            <h1>Ideas activas</h1>
-            <i id="sl">Haz parte de la cultura innovadora Uniandina</i>
+            <h1>Oportunidades</h1>
+            <i id="sl">Adopta ideas ¡Soluciona problemas!</i>
             <p>Te presentamos los proyectos de innovación en desarrollo en la Universidad de los Andes.
               ¡Puedes aportar en el desarrollo de estos proyectos comentando ideas, aportando recursos o te
               puedes unir al equipo de trabajo!</p>
