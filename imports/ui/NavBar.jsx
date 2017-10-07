@@ -15,6 +15,9 @@ const NavBar = () => (
           <li className="nav-item active">
             <Link className="nav-link" to='/projects'>Proyectos</Link>
           </li>
+          <li className="nav-item active">
+            <Link className="nav-link" to='/ideas'>Oportunidades</Link>
+          </li>
           <li className="nav-item">
             <Link className="nav-link" to='/projects/create'>Nuevo Proyecto</Link>
           </li>

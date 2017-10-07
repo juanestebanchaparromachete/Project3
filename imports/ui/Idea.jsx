@@ -66,7 +66,7 @@ export default class Idea extends Component {
   }
 }
 
-idea.propTypes = {
+Idea.propTypes = {
   // This component gets the idea to display through a React prop.
   // We can use propTypes to indicate it is required
   // idea: PropTypes.object.isRequired,
