@@ -3,8 +3,14 @@ import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import ProjectsView from './ProjectsView.jsx'
 import CreateProject from './CreateProject.jsx'
+import TransitionGroup from "react-transition-group/TransitionGroup";
 
 const browserHistory = createBrowserHistory();
+
+// const firstChild = props => {
+//   const childrenArray = React.Children.toArray(props.children);
+//   return childrenArray[0] || null;
+// };
 
 // App component - represents the whole app
 class App extends Component {
