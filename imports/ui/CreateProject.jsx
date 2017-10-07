@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
-import {Tasks} from '/imports/api/tasks.jsx';
+import NavBar from './NavBar.jsx'
 
 export default class CreateProject extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: [], count: 1, name:'', slogan:'', description:'', thumbnail:'',requirements:[],stage:'Gestación'};
+    this.state = {
+      value: [],
+      count: 1,
+      name: '',
+      slogan: '',
+      description: '',
+      thumbnail: '',
+      requirements: [],
+      stage: 'Gestación'
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,7 +30,7 @@ export default class CreateProject extends Component {
     for (let i = 0; i < this.state.count; i++) {
       uiItems.push(
         <div key={i}>
-          <label htmlFor="exampleInputEmail1">Requerimiento {i+1} &emsp; </label>
+          <label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>
           <input type="text" value={this.state.value[i] || ''} onChange={this.handleChange.bind(this, i)} required/>
           <input type='button' value='Remove' onClick={this.removeClick.bind(this, i)}/>
         </div>
@@ -53,48 +62,58 @@ export default class CreateProject extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Nombre del Proyecto</label>
-          <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
-                 value={this.state.name} onChange={(event) => this.setState({name: event.target.value})} placeholder="Nombre..."/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Slogan</label>
-          <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
-                 value={this.state.slogan} onChange={(event) => this.setState({slogan: event.target.value})} placeholder="Slogan..."/>
-          <small id="emailHelp" className="form-text text-muted">Una frase corta que muestre la esencia de tu proyecto
-          </small>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Descripción del Proyecto</label>
-          <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
-                 value={this.state.description} onChange={(event) => this.setState({description: event.target.value})} placeholder="Descripción..."/>
-          <small id="emailHelp" className="form-text text-muted">Describe completamente tu proyecto</small>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Thumbnail del proyecto</label>
-          <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
-                 value={this.state.thumbnail} onChange={(event) => this.setState({thumbnail: event.target.value})} placeholder="url..."/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Lista de requerimientos de tu proyecto</label>
+      <div>
+        <NavBar/>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Nombre del Proyecto</label>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
+                   value={this.state.name} onChange={(event) => this.setState({name: event.target.value})}
+                   placeholder="Nombre..."/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Slogan</label>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
+                   value={this.state.slogan} onChange={(event) => this.setState({slogan: event.target.value})}
+                   placeholder="Slogan..."/>
+            <small id="emailHelp" className="form-text text-muted">Una frase corta que muestre la esencia de tu proyecto
+            </small>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Descripción del Proyecto</label>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
+                   value={this.state.description} onChange={(event) => this.setState({description: event.target.value})}
+                   placeholder="Descripción..."/>
+            <small id="emailHelp" className="form-text text-muted">Describe completamente tu proyecto</small>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Thumbnail del proyecto</label>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
+                   value={this.state.thumbnail} onChange={(event) => this.setState({thumbnail: event.target.value})}
+                   placeholder="url..."/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Lista de requerimientos de tu proyecto</label>
             {this.renderRequirements()}
             <input type='button' value='Agregar más' onClick={this.addClick.bind(this)}/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleSelect1">Selecciona la etapa de tu proyecto</label>
-          <select className="form-control" id="exampleSelect1" required onChange={(e) =>  this.state.stage = e.target.value}>
-            <option>Gestación</option>
-            <option>Puesta en Marcha</option>
-            <option>Desarrollo Inicial</option>
-            <option>Crecimiento y consolidación</option>
-          </select>
-        </div>
-        <div style={{width:'100%',textAlign:'center'}}>
-        <button style={{display:'inline-block',textAlign:'center', marginBottom:'20px', width:'30%'}} type="submit" className="btn btn-primary">¡Publicar proyecto!</button>
-        </div>
-      </form>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleSelect1">Selecciona la etapa de tu proyecto</label>
+            <select className="form-control" id="exampleSelect1" required
+                    onChange={(e) => this.state.stage = e.target.value}>
+              <option>Gestación</option>
+              <option>Puesta en Marcha</option>
+              <option>Desarrollo Inicial</option>
+              <option>Crecimiento y consolidación</option>
+            </select>
+          </div>
+          <div style={{width: '100%', textAlign: 'center'}}>
+            <button style={{display: 'inline-block', textAlign: 'center', marginBottom: '20px', width: '30%'}}
+                    type="submit" className="btn btn-primary">¡Publicar proyecto!
+            </button>
+          </div>
+        </form>
+      </div>
     )
   }
 }

@@ -3,8 +3,8 @@ import Task from './Task.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Tasks} from '/imports/api/tasks.jsx';
 import ReactDOM from 'react-dom';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import {Meteor} from 'meteor/meteor';
+import NavBar from './NavBar.jsx'
 
 // ProjectsView component - represents the whole app
 class ProjectsView extends Component {
@@ -57,35 +57,7 @@ class ProjectsView extends Component {
   render() {
     return (
       <div>
-
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-          <div className="container">
-            <a className="navbar-brand" href="#">Start Bootstrap</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarResponsive">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
-                  <a className="nav-link" href="#">Home
-                    <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">About</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">Services</a>
-                </li>
-                <li className="nav-item">
-                  <AccountsUIWrapper/>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
+        <NavBar/>
         <div className="row my-4">
           <div className="col-lg-8">
             <img className="img-fluid rounded" src="http://placehold.it/900x400" alt=""/>
@@ -101,36 +73,6 @@ class ProjectsView extends Component {
           <div className="card-body">
             <p className="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
           </div>
-        </div>
-
-        <div className="container">
-          <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
-            <input
-              type="text"
-              ref="textInput"
-              placeholder="Type to add new tasks"
-            />
-          </form>
-          {/*<header>*/}
-          {/*<label className="hide-completed">*/}
-          {/*<input*/}
-          {/*type="checkbox"*/}
-          {/*readOnly*/}
-          {/*checked={this.state.hideCompleted}*/}
-          {/*onClick={this.toggleHideCompleted.bind(this)}*/}
-          {/*/>*/}
-          {/*Hide Completed Tasks*/}
-          {/*</label>*/}
-          {/*{ this.props.currentUser ?*/}
-          {/*<form className="new-task" onSubmit={this.handleSubmit.bind(this)} >*/}
-          {/*<input*/}
-          {/*type="text"*/}
-          {/*ref="textInput"*/}
-          {/*placeholder="Type to add new tasks"*/}
-          {/*/>*/}
-          {/*</form> : ''*/}
-          {/*}*/}
-          {/*</header>*/}
         </div>
 
         <div className="row">

@@ -11,13 +11,15 @@ class App extends Component {
 
   render() {
     return (
+      <div>
       <Router history={browserHistory}>
         <div>
-          <Route path="/projects" component={ProjectsView}/>
-          <Route path="/project/create" component={CreateProject}/>
+          <Route exact path="/projects" component={ProjectsView}/>
+          <Route exact path="/projects/create" component={CreateProject}/>
           <Route path="/pro" component={NotFound}/>
         </div>
       </Router>
+      </div>
     );
   }
 }
