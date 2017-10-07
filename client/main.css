@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster+Two');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 * {
     margin: 0;
@@ -13,7 +14,12 @@
     text-rendering: optimizeLegibility;
 }
 
+
 body {
+    padding-top: 62px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #315481, #918e82 100%);
     padding-top: 58px;
     font-family: sans-serif;
     background-color: #f8f8f8;
@@ -29,10 +35,13 @@ body {
     padding: 0;
     margin: 0;
 
-    font-size: 16px;
+    font-size: 18px;
     font-family: sans-serif;
     color:black;
 
+}
+p{
+    text-align: justify;
 }
 
 .card-body {
@@ -76,6 +85,11 @@ body {
 #oi{
     font-family: 'Lobster Two', cursive;
     font-size: 35px;
+}
+#sl{
+    font-size: 20px;
+    text-align: center;
+
 }
 @media (min-width: 992px) {
     body {

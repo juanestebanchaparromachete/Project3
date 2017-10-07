@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import ProjectsView from './ProjectsView.jsx'
+import IdeasView from './IdeasView.jsx'
 import CreateProject from './CreateProject.jsx'
 import TransitionGroup from "react-transition-group/TransitionGroup";
 
@@ -22,6 +23,7 @@ class App extends Component {
         <div>
           <Route exact path="/projects" component={ProjectsView}/>
           <Route exact path="/projects/create" component={CreateProject}/>
+          <Route exact path="/ideas" component={IdeasView}/>
           <Route path="/pro" component={NotFound}/>
         </div>
       </Router>

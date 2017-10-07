@@ -1,13 +1,13 @@
 import React, {Component, PropTypes} from 'react';
-import Task from './Task.jsx';
+import idea from './Idea.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Tasks} from '/imports/api/tasks.jsx';
+import {ideas} from '/imports/api/ideas.jsx';
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 
-// ProjectsView component - represents the whole app
-class ProjectsView extends Component {
+// IdeasView component - represents the whole app
+class IdeasView extends Component {
 
   constructor(props) {
     super(props);
@@ -23,19 +23,19 @@ class ProjectsView extends Component {
     });
   }
 
-  renderTasks() {
-    let filteredTasks = this.props.tasks;
+  renderIdeas() {
+    let filteredIdeas = this.props.ideas;
     if (this.state.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
+      filteredIdeas = filteredIdeas.filter(idea => !idea.checked);
     }
-    return filteredTasks.map((task) => {
+    return filteredIdeas.map((idea) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
-      const showPrivateButton = task.owner === currentUserId;
+      const showPrivateButton = idea.owner === currentUserId;
 
       return (
-        <Task
-          key={task._id}
-          task={task}
+        <idea
+          key={idea._id}
+          idea={idea}
         />
       );
     });
@@ -47,7 +47,7 @@ class ProjectsView extends Component {
     // Find the text field via the React ref
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-    Meteor.call('tasks.insert', text);
+    Meteor.call('ideas.insert', text);
     // Clear form
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
@@ -61,7 +61,7 @@ class ProjectsView extends Component {
             <img className="img-fluid rounded" src="http://placehold.it/900x400" alt=""/>
           </div>
           <div className="col-lg-4">
-            <h1>Proyectos activos</h1>
+            <h1>Ideas activas</h1>
             <i id="sl">Haz parte de la cultura innovadora Uniandina</i>
             <p>Te presentamos los proyectos de innovación en desarrollo en la Universidad de los Andes.
               ¡Puedes aportar en el desarrollo de estos proyectos comentando ideas, aportando recursos o te
@@ -77,10 +77,10 @@ class ProjectsView extends Component {
         </div>
 
         <div className="row">
-          {this.renderTasks()}
-          {this.renderTasks()}
-          {this.renderTasks()}
-          {this.renderTasks()}
+          {this.renderIdeas()}
+          {this.renderIdeas()}
+          {this.renderIdeas()}
+          {this.renderIdeas()}
         </div>
       </div>
 
@@ -89,10 +89,10 @@ class ProjectsView extends Component {
 }
 
 export default createContainer(() => {
-  Meteor.subscribe('tasks');
+  Meteor.subscribe('ideas');
   return {
-    tasks: Tasks.find({}, {sort: {createdAt: -1}}).fetch(),
-    incompleteCount: Tasks.find({checked: {$ne: true}}).count(),
+    ideas: ideas.find({}, {sort: {createdAt: -1}}).fetch(),
+    incompleteCount: ideas.find({checked: {$ne: true}}).count(),
     currentUser: Meteor.user(),
   };
-}, ProjectsView);
+}, IdeasView);
