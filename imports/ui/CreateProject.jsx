@@ -3,6 +3,28 @@ import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 import { Redirect } from 'react-router';
 
+var styles = {
+  btn: {
+    margin: '1em auto',
+    padding: '1em 2em',
+    outline: 'none',
+    fontSize: 16,
+    fontWeight: '600',
+    background: '#C94E50',
+    color: '#FFFFFF',
+    border: 'none'
+  },
+  container: {
+    padding: '2em',
+    textAlign: 'center'
+  },
+  title: {
+    margin: 0,
+    color: '#C94E50',
+    fontWeight: 400
+  }
+}
+
 class CreateProject extends Component {
 
   constructor(props) {
@@ -20,7 +42,6 @@ class CreateProject extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   handleChange(i, event) {
     let value = this.state.value.slice();
     value[i] = event.target.value;
@@ -34,7 +55,7 @@ class CreateProject extends Component {
         <div key={i}>
           <label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>
           <input type="text" value={this.state.value[i] || ''} onChange={this.handleChange.bind(this, i)} required/>
-          <input type='button' value='Remove' onClick={this.removeClick.bind(this, i)}/>
+          <input type='button' value='Remove' className="btn btn-dark" onClick={this.removeClick.bind(this, i)}/>
         </div>
       )
     }
@@ -101,7 +122,7 @@ class CreateProject extends Component {
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Lista de requerimientos de tu proyecto</label>
             {this.renderRequirements()}
-            <input type='button' value='Agregar más' onClick={this.addClick.bind(this)}/>
+            <input type='button' value='Agregar más' className="btn btn-info" onClick={this.addClick.bind(this)}/>
           </div>
           <div className="form-group">
             <label htmlFor="exampleSelect1">Selecciona la etapa de tu proyecto</label>

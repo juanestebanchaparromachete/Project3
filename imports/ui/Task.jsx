@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
-import {Tasks} from '../api/tasks.jsx';
 import {Meteor} from 'meteor/meteor';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 // Task component - represents a single todo item
@@ -35,7 +35,7 @@ export default class Task extends Component {
             <p className="card-text">{this.props.task.slogan}</p>
           </div>
           <div className="card-footer">
-            <a href="#" className="btn btn-primary">More Info</a>
+            <Link to="/projects/create" href="#" className="btn btn-primary moreInfoButton">More Info</Link>
           </div>
         </div>
       </div>

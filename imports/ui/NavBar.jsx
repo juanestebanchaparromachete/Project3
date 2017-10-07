@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 const NavBar = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNavBar">
     <div className="container">
       <Link className="navbar-brand" id="oi" to='/projects'>Open Innovation</Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
