@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two');
+
 body {
     padding-top: 54px;
     font-family: sans-serif;
@@ -22,6 +24,10 @@ body {
 
 .card-body{
     color:black;
+}
+
+#oi{
+    font-family: 'Lobster Two', cursive;
 }
 @media (min-width: 992px) {
     body {
