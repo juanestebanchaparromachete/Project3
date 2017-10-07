@@ -27,7 +27,7 @@ export default class Task extends Component {
     });
 
     return (
-      <div className="col-md-4 mb-4">
+      <div className="col-md-3 mb-3">
         <div className="card h-100">
           <div className="card-body">
             <h2 className="card-title">{this.props.task.name}</h2>
