@@ -64,7 +64,7 @@ export default class CreateProject extends Component {
     return (
       <div>
         <NavBar/>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} style={{marginTop:'30px'}}>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Nombre del Proyecto</label>
             <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required
