@@ -78,6 +78,9 @@ class ProjectsView extends Component {
 
         <div className="row">
           {this.renderTasks()}
+          {this.renderTasks()}
+          {this.renderTasks()}
+          {this.renderTasks()}
         </div>
       </div>
 

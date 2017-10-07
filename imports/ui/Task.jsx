@@ -31,7 +31,7 @@ export default class Task extends Component {
         <div className="card h-100">
           <div className="card-body">
             <h2 className="card-title">{this.props.task.name}</h2>
-            <img className="card-img-top" src={this.props.task.thumbnail} alt="Imagen descriptiva proyecto"/>
+            <img className="card-img-top" src={this.props.task.thumbnail} width="200px" alt="Imagen descriptiva proyecto"/>
             <p className="card-text">{this.props.task.slogan}</p>
           </div>
           <div className="card-footer">
