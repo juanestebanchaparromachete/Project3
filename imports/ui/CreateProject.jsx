@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 
-export default class CreateProject extends Component {
+class CreateProject extends Component {
 
   constructor(props) {
     super(props);
@@ -117,3 +117,5 @@ export default class CreateProject extends Component {
     )
   }
 }
+
+export default CreateProject;
