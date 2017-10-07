@@ -121,7 +121,7 @@ class CreateProject extends Component {
               <div>
                 <label htmlFor="exampleInputEmail1">Lista de requerimientos de tu proyecto</label>
                 {this.renderRequirements()}
-                <input type='button' value='Agregar más' className="btn btn-info" onClick={this.addClick.bind(this)}/>
+                <input type='button' value='Agregar más' id="addMoreButton" onClick={this.addClick.bind(this)}/>
               </div>
             </fieldset>
             <fieldset>
