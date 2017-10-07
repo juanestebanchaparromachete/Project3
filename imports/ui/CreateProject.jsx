@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
+import { Redirect } from 'react-router';
 
 class CreateProject extends Component {
 
@@ -18,6 +19,7 @@ class CreateProject extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 
   handleChange(i, event) {
     let value = this.state.value.slice();
@@ -42,8 +44,9 @@ class CreateProject extends Component {
   handleSubmit(event) {
     event.preventDefault();
     Meteor.call('tasks.insert', this.state);
-    window.location.href = '/projects';
-
+    // window.location.href = '/projects';
+    // this.context.router.push('/projects');
+    this.setState({redirect: true});
     // Clear form
   }
 
@@ -61,6 +64,9 @@ class CreateProject extends Component {
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect push to="/projects" />;
+    }
     return (
       <div>
         <NavBar/>
