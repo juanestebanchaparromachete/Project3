@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import ProjectsView from './ProjectsView.jsx'
+import CreateProject from './CreateProject.jsx'
 
 const browserHistory = createBrowserHistory();
 
@@ -13,7 +14,8 @@ class App extends Component {
       <Router history={browserHistory}>
         <div>
           <Route path="/projects" component={ProjectsView}/>
-          <Route path="/pw" component={NotFound}/>
+          <Route path="/project/create" component={CreateProject}/>
+          <Route path="/pro" component={NotFound}/>
         </div>
       </Router>
     );

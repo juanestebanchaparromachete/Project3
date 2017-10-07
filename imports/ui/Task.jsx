@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { Tasks } from '../api/tasks.jsx';
-import { Meteor } from 'meteor/meteor';
+import React, {Component, PropTypes} from 'react';
+import {Tasks} from '../api/tasks.jsx';
+import {Meteor} from 'meteor/meteor';
 import classnames from 'classnames';
 
 // Task component - represents a single todo item
@@ -12,7 +12,7 @@ export default class Task extends Component {
   }
 
   togglePrivate() {
-    Meteor.call('tasks.setPrivate', this.props.task._id, ! this.props.task.private);
+    Meteor.call('tasks.setPrivate', this.props.task._id, !this.props.task.private);
   }
 
   deleteThisTask() {
@@ -27,29 +27,41 @@ export default class Task extends Component {
     });
 
     return (
-      <li className={taskClassName}>
-        <button className="delete" onClick={this.deleteThisTask.bind(this)}>
-          &times;
-        </button>
-
-        <input
-          type="checkbox"
-          readOnly
-          checked={this.props.task.checked}
-          onClick={this.toggleChecked.bind(this)}
-        />
-
-        { this.props.showPrivateButton ? (
-          <button className="toggle-private" onClick={this.togglePrivate.bind(this)}>
-            { this.props.task.private ? 'Private' : 'Public' }
-          </button>
-        ) : ''}
-
-        <span className="text">{this.props.task.text}</span>
-        <span className="text">
-          <strong>{this.props.task.username}</strong>: {this.props.task.text}
-        </span>
-      </li>
+      <div className="col-md-4 mb-4">
+        <div className="card h-100">
+          <div className="card-body">
+            <h2 className="card-title">{this.props.name}</h2>
+            <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam,
+              maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          </div>
+          <div className="card-footer">
+            <a href="#" className="btn btn-primary">More Info</a>
+          </div>
+        </div>
+      </div>
+      // <li className={taskClassName}>
+      //   <button className="delete" onClick={this.deleteThisTask.bind(this)}>
+      //     &times;
+      //   </button>
+      //
+      //   <input
+      //     type="checkbox"
+      //     readOnly
+      //     checked={this.props.task.checked}
+      //     onClick={this.toggleChecked.bind(this)}
+      //   />
+      //
+      //   { this.props.showPrivateButton ? (
+      //     <button className="toggle-private" onClick={this.togglePrivate.bind(this)}>
+      //       { this.props.task.private ? 'Private' : 'Public' }
+      //     </button>
+      //   ) : ''}
+      //
+      //   <span className="text">{this.props.task.text}</span>
+      //   <span className="text">
+      //     <strong>{this.props.task.username}</strong>: {this.props.task.text}
+      //   </span>
+      // </li>
     );
   }
 }
