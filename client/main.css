@@ -37,7 +37,7 @@
 
 }
 .tag {
-    background: #eee;
+    background: #bfbfbf;
     border-radius: 3px 0 0 3px;
     color: #999;
     display: inline-block;
@@ -49,6 +49,7 @@
     text-decoration: none;
     -webkit-transition: color 0.2s;
     font: 15px/1.5 'PT Sans', serif;
+    font-weight: bold;
 
 }
 
@@ -67,7 +68,7 @@
 .tag::after {
     background: #fff;
     border-bottom: 13px solid transparent;
-    border-left: 10px solid #eee;
+    border-left: 10px solid #bfbfbf;
     border-top: 13px solid transparent;
     content: '';
     position: absolute;
