@@ -5,17 +5,10 @@ import ProjectsView from './ProjectsView.jsx'
 import IdeasView from './IdeasView.jsx'
 import CreateProject from './CreateProject.jsx'
 import SingleProject from './SingleProject.jsx'
-// import TransitionGroup from "react-transition-group/TransitionGroup";
+import { Redirect } from 'react-router';
 import CreateIdea from './CreateIdea.jsx'
 
-import TransitionGroup from "react-transition-group/TransitionGroup";
-
 const browserHistory = createBrowserHistory();
-
-// const firstChild = props => {
-//   const childrenArray = React.Children.toArray(props.children);
-//   return childrenArray[0] || null;
-// };
 
 // App component - represents the whole app
 class App extends Component {
@@ -25,6 +18,7 @@ class App extends Component {
       <div>
       <Router history={browserHistory}>
         <div>
+          <Route exact path="/" component={MainRedirect}/>
           <Route exact path="/projects" component={ProjectsView}/>
           <Route exact path="/projects/create" component={CreateProject}/>
           <Route exact path="/ideas" component={IdeasView}/>
@@ -40,5 +34,8 @@ class App extends Component {
 
 const NotFound = () => (
   <h1>404.. This page is not found!</h1>);
+
+const MainRedirect = () => (
+  <Redirect push to="/projects"/>);
 
 export default App;

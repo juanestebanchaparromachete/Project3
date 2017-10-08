@@ -4,7 +4,6 @@ import {Meteor} from 'meteor/meteor';
 import classnames from 'classnames';
 import {Link} from 'react-router-dom';
 
-// idea component - represents a single todo item
 export default class Idea extends Component {
     constructor(props) {
         super(props);

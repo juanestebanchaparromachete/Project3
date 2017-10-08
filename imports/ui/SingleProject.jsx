@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react';
-import {Meteor} from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
-import {Redirect} from 'react-router';
-import {Comments} from '/imports/api/comments';
+import { Redirect } from 'react-router';
+import { Comments } from '/imports/api/comments';
 import Comment from "./Comment";
-import {createContainer} from 'meteor/react-meteor-data';
+import { createContainer } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session'
 
 class SingleProject extends Component {

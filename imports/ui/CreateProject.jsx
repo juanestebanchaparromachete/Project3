@@ -3,28 +3,6 @@ import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 import {Redirect} from 'react-router';
 
-var styles = {
-  btn: {
-    margin: '1em auto',
-    padding: '1em 2em',
-    outline: 'none',
-    fontSize: 16,
-    fontWeight: '600',
-    background: '#C94E50',
-    color: '#FFFFFF',
-    border: 'none'
-  },
-  container: {
-    padding: '2em',
-    textAlign: 'center'
-  },
-  title: {
-    margin: 0,
-    color: '#C94E50',
-    fontWeight: 400
-  }
-}
-
 class CreateProject extends Component {
 
   constructor(props) {
@@ -60,7 +38,7 @@ class CreateProject extends Component {
               <input id="exampleSelect1" type="text" value={this.state.value[i] || ''}
                      placeholder={'Requerimiento ' + (i + 1) + ' ...'}
                      onChange={this.handleChange.bind(this, i)} required className="requirementInput"/>
-              <input type='button' value='Remover' className="removeReqButton"
+              <input type='button' value='Remove' className="removeReqButton"
                      onClick={this.removeClick.bind(this, i)}/>
             </div>
           </div>
