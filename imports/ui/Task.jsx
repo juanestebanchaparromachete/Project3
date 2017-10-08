@@ -35,7 +35,7 @@ export default class Task extends Component {
             <p className="card-text">{this.props.task.slogan}</p>
           </div>
           <div className="card-footer">
-            <Link to="/projects/create" href="#" className="btn btn-primary moreInfoButton">More Info</Link>
+            <Link to={{pathname: '/projects/view/' + this.props.task.name, query: this.props.task}} href="#" className="btn btn-primary moreInfoButton">More Info</Link>
           </div>
         </div>
       </div>

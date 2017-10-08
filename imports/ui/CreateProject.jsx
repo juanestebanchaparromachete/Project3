@@ -55,7 +55,7 @@ class CreateProject extends Component {
         <div key={i} style={{display:'inline'}}>
           {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
           <input type="text" value={this.state.value[i] || ''} placeholder={'Requerimiento '+(i + 1)+' ...'}
-                 onChange={this.handleChange.bind(this, i)} required className="requirementInput"/>
+                   onChange={this.handleChange.bind(this, i)} required className="requirementInput"/>
           <input type='button' value='Remover' className="removeReqButton" onClick={this.removeClick.bind(this, i)}/>
         </div>
       )
