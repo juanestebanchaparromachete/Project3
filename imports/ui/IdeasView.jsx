@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import idea from './Idea.jsx';
+import Idea from './Idea.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
 import {ideas} from '/imports/api/ideas.jsx';
 import ReactDOM from 'react-dom';
@@ -33,7 +33,7 @@ class IdeasView extends Component {
       const showPrivateButton = idea.owner === currentUserId;
 
       return (
-        <idea
+        <Idea
           key={idea._id}
           idea={idea}
         />

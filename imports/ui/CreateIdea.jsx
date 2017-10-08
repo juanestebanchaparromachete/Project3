@@ -37,7 +37,6 @@ class CreateIdea extends Component {
             description: '',
             thumbnail: '',
             requirements: [],
-            stage: 'Gestación'
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -81,7 +80,7 @@ class CreateIdea extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        Meteor.call('tasks.insert', this.state);
+        Meteor.call('ideas.insert', this.state);
         // window.location.href = '/projects';
         // this.context.router.push('/projects');
         this.setState({redirect: true});
