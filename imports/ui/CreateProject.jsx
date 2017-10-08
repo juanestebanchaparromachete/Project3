@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
+import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import {Redirect} from 'react-router';
 
 class CreateProject extends Component {
@@ -90,6 +91,9 @@ class CreateProject extends Component {
     return (
       <div>
         <NavBar/>
+        <div id="thingId">
+          <AccountsUIWrapper />
+        </div>
         <div className="container2">
           <form id="contact" className="form" onSubmit={this.handleSubmit}>
             <h3>Publica tu proyecto</h3>

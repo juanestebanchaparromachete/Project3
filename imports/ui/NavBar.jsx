@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import { Link } from 'react-router-dom';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 const NavBar = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNavBar">
@@ -24,9 +23,11 @@ const NavBar = () => (
           <li className="nav-item">
             <Link className="nav-link" to='/ideas/create'>Crear oportunidad</Link>
           </li>
-          <li className="nav-item">
-            <AccountsUIWrapper/>
-          </li>
+          {/*<li className="nav-item" style={{textAlign:'left'}}>*/}
+            {/*<div id="loginWrapper" className="pull-left">*/}
+              {/*/!*<AccountsUIWrapper className="dropdown-menu-left !important" style={{position: 'static'}}/>*!/*/}
+            {/*</div>*/}
+          {/*</li>*/}
         </ul>
       </div>
     </div>

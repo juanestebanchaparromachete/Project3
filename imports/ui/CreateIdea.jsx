@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 import {Redirect} from 'react-router';
+import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 class CreateIdea extends Component {
 
@@ -89,6 +90,9 @@ class CreateIdea extends Component {
     return (
       <div>
         <NavBar/>
+        <div id="thingId">
+          <AccountsUIWrapper />
+        </div>
         <div className="container2">
           <form id="contact" className="form" onSubmit={this.handleSubmit}>
             <h3>Publica una oportunidad</h3>
