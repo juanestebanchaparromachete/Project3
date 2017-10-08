@@ -4,6 +4,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import ProjectsView from './ProjectsView.jsx'
 import IdeasView from './IdeasView.jsx'
 import CreateProject from './CreateProject.jsx'
+import SingleProject from './SingleProject.jsx'
+// import TransitionGroup from "react-transition-group/TransitionGroup";
 import CreateIdea from './CreateIdea.jsx'
 
 import TransitionGroup from "react-transition-group/TransitionGroup";
@@ -26,6 +28,7 @@ class App extends Component {
           <Route exact path="/projects" component={ProjectsView}/>
           <Route exact path="/projects/create" component={CreateProject}/>
           <Route exact path="/ideas" component={IdeasView}/>
+          <Route path="/projects/view/:name" component={SingleProject}/>
           <Route exact path="/ideas/create" component={CreateIdea}/>
           <Route path="/pro" component={NotFound}/>
         </div>
