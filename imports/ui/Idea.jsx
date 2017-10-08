@@ -27,15 +27,15 @@ export default class Idea extends Component {
     });
 
     return (
-      <div className="col-md-4 mb-4">
+      <div className="col-md-3 mb-3">
         <div className="card h-100">
           <div className="card-body">
             <h2 className="card-title">{this.props.idea.name}</h2>
-            <img className="card-img-top" src={this.props.idea.thumbnail} alt="Imagen descriptiva proyecto"/>
+            <img className="card-img-top" src={this.props.idea.thumbnail} width="200px" alt="Imagen descriptiva proyecto"/>
             <p className="card-text">{this.props.idea.slogan}</p>
           </div>
           <div className="card-footer">
-            <a href="#" className="btn btn-primary">More Info</a>
+            <a href="#" className="btn btn-primary moreInfoButton">Adoptar</a>
           </div>
         </div>
       </div>
