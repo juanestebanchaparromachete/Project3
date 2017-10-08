@@ -4,7 +4,6 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Tasks} from '/imports/api/tasks.jsx';
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import NavBar from './NavBar.jsx'
 
 // ProjectsView component - represents the whole app
@@ -71,8 +70,7 @@ class ProjectsView extends Component {
 
         <div className="card text-white bg-secondary my-4 text-center">
           <div className="card-body">
-            <span className="text-white m-0">Te invitamos a registrarte en nuestra página &nbsp; </span>
-            <AccountsUIWrapper/>
+            <span className="text-white m-0">¡Participa en la construcción de proyectos innovadores! </span>
           </div>
         </div>
 

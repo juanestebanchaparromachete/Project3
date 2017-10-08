@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import Idea from './Idea.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
 import {ideas} from '/imports/api/ideas.jsx';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
@@ -71,8 +70,7 @@ class IdeasView extends Component {
 
         <div className="card text-white bg-secondary my-4 text-center">
           <div className="card-body">
-            <span className="text-white m-0">Te invitamos a registrarte en nuestra página &nbsp; </span>
-            <AccountsUIWrapper/>
+            <span className="text-white m-0">¡Adopta oportunidades y genera proyectos de alto impacto! </span>
           </div>
         </div>
 
