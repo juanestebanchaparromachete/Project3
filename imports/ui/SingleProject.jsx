@@ -2,15 +2,48 @@ import React, {Component, PropTypes} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 import {Redirect} from 'react-router';
+import {Comments} from '/imports/api/comments';
+import Comment from "./Comment";
+import {createContainer} from 'meteor/react-meteor-data';
+import { Session } from 'meteor/session'
 
-export default class SingleProject extends React.Component {
+class SingleProject extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       task: props.location.query,
+      value: '',
     }
-    console.log(this.state.task)
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  renderComments() {
+    let filteredTasks = this.props.comments;
+    // if (this.state.hideCompleted) {
+    //   filteredTasks = filteredTasks.filter(task => !task.checked);
+    // }
+    return filteredTasks.map((task) => {
+      const currentUserId = this.props.currentUser && this.props.currentUser._id;
+      // const showPrivateButton = task.owner === currentUserId;
+
+      return (
+        <Comment
+          key={task._id}
+          comment={task}
+        />
+      );
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    Meteor.call('comments.insert', this.state.value, this.state.task._id);
+    // window.location.href = '/projects';
+    // this.context.router.push('/projects');
+    // this.setState({redirect: true});
+    // Clear form
   }
 
   render() {
@@ -57,9 +90,9 @@ export default class SingleProject extends React.Component {
                         <div className="card my-4">
                           <h5 className="card-header">Leave a Comment:</h5>
                           <div className="card-body">
-                            <form>
+                            <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
-                                <textarea className="form-control" rows="3"></textarea>
+                                <textarea className="form-control" rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
                               </div>
                               <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
@@ -67,13 +100,8 @@ export default class SingleProject extends React.Component {
                         </div>
 
                         {/*<!-- Single Comment -->*/}
-                        <div className="media mb-4">
-                          <img className="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""/>
-                            <div className="media-body">
-                              <h5 className="mt-0">Commenter Name</h5>
-                              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
+                        {this.renderComments()}
+                        {/*<Comment/>*/}
             </div>
 
             {/*<!-- Sidebar Widgets Column -->*/}
@@ -124,3 +152,23 @@ export default class SingleProject extends React.Component {
     )
   }
 }
+
+// export default createContainer(() => {
+//   Meteor.subscribe('comments');
+//   console.log(Comments.find({}).fetch())
+//   return {
+//     // comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
+//     comments: Comments.find({}).fetch(),
+//     currentUser: Meteor.user(),
+//   };
+//   console.log(comments)
+// }, SingleProject);
+
+export default createContainer(() => {
+  Meteor.subscribe('comments', Session.get('projectId'));
+  return {
+    comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
+    incompleteCount: Comments.find({checked: {$ne: true}}).count(),
+    currentUser: Meteor.user(),
+  };
+}, SingleProject);
