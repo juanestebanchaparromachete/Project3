@@ -71,11 +71,9 @@ class CreateProject extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        this.state.requirements = this.state.value;
         Meteor.call('tasks.insert', this.state);
-        // window.location.href = '/projects';
-        // this.context.router.push('/projects');
         this.setState({redirect: true});
-        // Clear form
     }
 
     addClick() {
