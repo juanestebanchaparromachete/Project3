@@ -58,11 +58,15 @@ class CreateIdea extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    Meteor.call('ideas.insert', this.state);
-    // window.location.href = '/projects';
-    // this.context.router.push('/projects');
-    this.setState({redirect: true});
-    // Clear form
+    let b = this;
+    Meteor.call('ideas.insert', this.state, function (error, result) {
+      if (error) {
+        Bert.alert( 'Debes iniciar sesión para poder publicar!', 'danger', 'growl-top-right' );
+      }
+      else{
+        b.setState({redirect: true});
+      }
+    });
   }
 
   addClick() {

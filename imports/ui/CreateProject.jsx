@@ -59,8 +59,15 @@ class CreateProject extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.state.requirements = this.state.value;
-    Meteor.call('tasks.insert', this.state);
-    this.setState({redirect: true});
+    let b = this;
+    Meteor.call('tasks.insert', this.state, function (error, result) {
+      if (error) {
+        Bert.alert( 'Debes iniciar sesión para poder publicar!', 'danger', 'growl-top-right' );
+      }
+      else{
+        b.setState({redirect: true});
+      }
+    });
   }
 
   addClick() {

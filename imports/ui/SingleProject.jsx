@@ -6,6 +6,7 @@ import { Comments } from '/imports/api/comments';
 import Comment from "./Comment";
 import { createContainer } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session'
+// import SweetAlert from 'react-bootstrap-sweetalert';
 
 class SingleProject extends Component {
 
@@ -50,7 +51,11 @@ class SingleProject extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    Meteor.call('comments.insert', this.state.value, this.state.task._id);
+    Meteor.call('comments.insert', this.state.value, this.state.task._id, function (error, result) {
+      if (error) {
+        Bert.alert( 'Debes iniciar sesión para poder comentar!', 'danger', 'growl-top-right' );
+      }
+    });
   }
 
   render() {
@@ -59,7 +64,6 @@ class SingleProject extends Component {
     }
     return (
       <div>
-
         <NavBar/>
         <div className="container" style={{marginTop:'10px'}}>
 
@@ -133,11 +137,11 @@ class SingleProject extends Component {
                     <div className="col-lg-12">
                       <ul className="list-unstyled mb-12">
                         {
-                          this.state.task.requirements.map((task) => {
+                          this.state.task.requirements.map((task,i) => {
                             const currentUserId = this.props.currentUser && this.props.currentUser._id;
                             // const showPrivateButton = task.owner === currentUserId;
                             return (
-                              <div>
+                              <div key={i}>
                                 <li className="col-lg-12" style={{textAlign:'justify'}}>
                                   {task}
                                 </li>
@@ -146,7 +150,6 @@ class SingleProject extends Component {
                             );
                           })
                         }
-
                       </ul>
                     </div>
                   </div>
