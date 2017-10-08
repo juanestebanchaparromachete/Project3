@@ -2,22 +2,10 @@ import React, {Component, PropTypes} from 'react';
 import {Meteor} from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
+import { Session } from 'meteor/session'
 
 // Task component - represents a single todo item
 export default class Task extends Component {
-
-  toggleChecked() {
-    // Set the checked property to the opposite of its current value
-    Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
-  }
-
-  togglePrivate() {
-    Meteor.call('tasks.setPrivate', this.props.task._id, !this.props.task.private);
-  }
-
-  deleteThisTask() {
-    Meteor.call('tasks.remove', this.props.task._id);
-  }
 
   render() {
 
@@ -35,7 +23,7 @@ export default class Task extends Component {
             <p className="card-text">{this.props.task.slogan}</p>
           </div>
           <div className="card-footer">
-            <Link to={{pathname: '/projects/view/' + this.props.task.name, query: this.props.task}} href="#" className="btn btn-primary moreInfoButton">More Info</Link>
+            <Link onClick={() => Session.set('projectId', this.props.task._id)} to={{pathname: '/projects/view/' + this.props.task.name, query: this.props.task}} className="btn btn-primary moreInfoButton">More Info</Link>
           </div>
         </div>
       </div>

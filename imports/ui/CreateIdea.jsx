@@ -102,7 +102,7 @@ class CreateIdea extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect push to="/projects"/>;
+            return <Redirect push to="/ideas"/>;
         }
         return (
             <div>

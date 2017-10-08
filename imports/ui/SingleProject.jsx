@@ -2,9 +2,10 @@ import React, {Component, PropTypes} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 import {Redirect} from 'react-router';
-import {Comments} from '/imports/api/comments.jsx';
+import {Comments} from '/imports/api/comments';
 import Comment from "./Comment";
 import {createContainer} from 'meteor/react-meteor-data';
+import { Session } from 'meteor/session'
 
 class SingleProject extends Component {
 
@@ -12,13 +13,14 @@ class SingleProject extends Component {
     super(props);
     this.state = {
       task: props.location.query,
+      value: '',
     }
-    console.log(this.state.task)
+    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   renderComments() {
     let filteredTasks = this.props.comments;
-    console.log(filteredTasks )
     // if (this.state.hideCompleted) {
     //   filteredTasks = filteredTasks.filter(task => !task.checked);
     // }
@@ -33,6 +35,15 @@ class SingleProject extends Component {
         />
       );
     });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    Meteor.call('comments.insert', this.state.value, this.state.task._id);
+    // window.location.href = '/projects';
+    // this.context.router.push('/projects');
+    // this.setState({redirect: true});
+    // Clear form
   }
 
   render() {
@@ -79,9 +90,9 @@ class SingleProject extends Component {
                         <div className="card my-4">
                           <h5 className="card-header">Leave a Comment:</h5>
                           <div className="card-body">
-                            <form>
+                            <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
-                                <textarea className="form-control" rows="3"></textarea>
+                                <textarea className="form-control" rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
                               </div>
                               <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
@@ -142,13 +153,22 @@ class SingleProject extends Component {
   }
 }
 
+// export default createContainer(() => {
+//   Meteor.subscribe('comments');
+//   console.log(Comments.find({}).fetch())
+//   return {
+//     // comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
+//     comments: Comments.find({}).fetch(),
+//     currentUser: Meteor.user(),
+//   };
+//   console.log(comments)
+// }, SingleProject);
+
 export default createContainer(() => {
-  Meteor.subscribe('comments');
-  console.log(Comments.find({}))
+  Meteor.subscribe('comments', Session.get('projectId'));
   return {
-    // comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
-    comments: Comments.find({}).fetch(),
+    comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
+    incompleteCount: Comments.find({checked: {$ne: true}}).count(),
     currentUser: Meteor.user(),
   };
-  console.log(comments)
 }, SingleProject);
