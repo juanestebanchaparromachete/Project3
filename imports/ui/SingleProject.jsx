@@ -38,6 +38,17 @@ class SingleProject extends Component {
     });
   }
 
+  sendMail() {
+      // Client: Asynchronously send an email.
+      Meteor.call(
+          'sendEmail',
+          'Alice <dianasbeltran@gmail.com>',
+          'dianasbeltran@gmail.com',
+          'Hello from Meteor!',
+          'This is a test of Email.send.'
+      );
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     Meteor.call('comments.insert', this.state.value, this.state.task._id);
@@ -103,6 +114,18 @@ class SingleProject extends Component {
 
             {/*<!-- Sidebar Widgets Column -->*/}
             <div className="col-md-4">
+                {/*<!-- Participar Widget -->*/}
+              <div className="card my-4">
+                <h5 className="card-header">Participar</h5>
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <button type="submit" onClick={this.sendMail} className="btn btn-primary">Enviar mensaje</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/*<!-- Requirements Widget -->*/}
               <div className="card my-4">
                 <h5 className="card-header">Requerimientos</h5>
