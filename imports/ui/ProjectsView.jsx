@@ -58,7 +58,7 @@ class ProjectsView extends Component {
         <NavBar/>
         <div className="row my-4">
           <div className="col-lg-8">
-            <img className="img-fluid rounded" src="http://placehold.it/900x400" alt=""/>
+            <img className="img-fluid rounded" src="http://www.goaugment.io/wp-content/uploads/2016/07/Innovation-is-an-Attitude.jpg" alt=""/>
           </div>
           <div className="col-lg-4">
             <h1>Proyectos activos</h1>

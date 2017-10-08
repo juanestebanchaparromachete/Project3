@@ -36,7 +36,6 @@ class CreateIdea extends Component {
             slogan: '',
             description: '',
             thumbnail: '',
-            requirements: [],
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -102,7 +101,7 @@ class CreateIdea extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect push to="/projects"/>;
+            return <Redirect push to="/ideas"/>;
         }
         return (
             <div>
