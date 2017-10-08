@@ -6,7 +6,7 @@ import { Comments } from '/imports/api/comments';
 import Comment from "./Comment";
 import { createContainer } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session'
-// import SweetAlert from 'react-bootstrap-sweetalert';
+import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 class SingleProject extends Component {
 
@@ -101,6 +101,9 @@ class SingleProject extends Component {
                         <div className="card my-4">
                           <h5 className="card-header">Leave a Comment:</h5>
                           <div className="card-body">
+                            <div style={{textAlign:'left', marginBottom:'10px'}}>
+                              <AccountsUIWrapper/>
+                            </div>
                             <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
                                 <textarea className="form-control" rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
