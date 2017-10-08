@@ -22,7 +22,6 @@ class CreateProject extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     let idea = props.location.query;
     if (idea){
-      console.log(idea)
       this.state.description = idea.description;
       this.state.slogan = idea.slogan;
       this.state.thumbnail = idea.thumbnail;
