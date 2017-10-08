@@ -22,6 +22,9 @@ const NavBar = () => (
             <Link className="nav-link" to='/projects/create'>Nuevo Proyecto</Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-link" to='/ideas/create'>Nueva oportunidad</Link>
+          </li>
+          <li className="nav-item">
             <AccountsUIWrapper/>
           </li>
         </ul>
