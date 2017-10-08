@@ -12,17 +12,17 @@ const NavBar = () => (
       </button>
       <div className="collapse navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link className="nav-link" to='/projects'>Proyectos</Link>
           </li>
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link className="nav-link" to='/ideas'>Oportunidades</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to='/projects/create'>Nuevo Proyecto</Link>
+            <Link className="nav-link" to='/projects/create'>Crear Proyecto</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to='/ideas/create'>Nueva oportunidad</Link>
+            <Link className="nav-link" to='/ideas/create'>Crear oportunidad</Link>
           </li>
           <li className="nav-item">
             <AccountsUIWrapper/>

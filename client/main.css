@@ -16,6 +16,9 @@
 #exampleSelect1{
     width: 85% !important;
 }
+#exampleSelect2{
+    width: 100% !important;
+}
 .center-div
 {
     margin: auto;

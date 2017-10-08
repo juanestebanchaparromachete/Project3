@@ -52,13 +52,17 @@ class CreateProject extends Component {
         let uiItems = [];
         for (let i = 0; i < this.state.count; i++) {
             uiItems.push(
-                <div key={i} style={{display: 'inline'}}>
-                    {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
-                    <input type="text" value={this.state.value[i] || ''}
-                           placeholder={'Requerimiento ' + (i + 1) + ' ...'}
-                           onChange={this.handleChange.bind(this, i)} required className="requirementInput"/>
-                    <input type='button' value='Remover' className="removeReqButton"
-                           onClick={this.removeClick.bind(this, i)}/>
+                <div className="center-div" style={{textAlign: 'center'}} key={i}>
+                    <div className="row" style={{display: 'inline', textAlign: 'center'}}>
+                        <div key={i} style={{display: 'inline'}}>
+                            {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
+                            <input id="exampleSelect1" type="text" value={this.state.value[i] || ''}
+                                   placeholder={'Requerimiento ' + (i + 1) + ' ...'}
+                                   onChange={this.handleChange.bind(this, i)} required className="requirementInput"/>
+                            <input type='button' value='Remover' className="removeReqButton"
+                                   onClick={this.removeClick.bind(this, i)}/>
+                        </div>
+                    </div>
                 </div>
             )
         }
@@ -130,12 +134,14 @@ class CreateProject extends Component {
                             <div>
                                 <label htmlFor="exampleInputEmail1">Lista de requerimientos de tu proyecto</label><br/>
                                 {this.renderRequirements()}
-                                <input type='button' value='Agregar más' id="addMoreButton"
-                                       onClick={this.addClick.bind(this)}/>
+                                <div style={{textAlign: 'center'}}>
+                                    <input type='button' value='Agregar más' id="addMoreButton"
+                                           onClick={this.addClick.bind(this)}/>
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset>
-                            <select className="form-control" id="exampleSelect1" required
+                            <select className="form-control" id="exampleSelect2" required
                                     onChange={(e) => this.state.stage = e.target.value}>
                                 <option>Gestación</option>
                                 <option>Puesta en Marcha</option>
