@@ -58,7 +58,7 @@ class ProjectsView extends Component {
         <NavBar/>
         <div className="row my-4">
           <div className="col-lg-8">
-            <img className="img-fluid rounded" src="http://placehold.it/900x400" alt=""/>
+            <img className="img-fluid rounded" src="https://pi.tedcdn.com/r/tedideas.files.wordpress.com/2017/03/frugal_innovation.png?" alt="Innovation image"/>
           </div>
           <div className="col-lg-4">
             <h1>Proyectos activos</h1>
