@@ -11,7 +11,6 @@ class ProjectsView extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       hideCompleted: false,
     };
@@ -58,7 +57,7 @@ class ProjectsView extends Component {
         <NavBar/>
         <div className="row my-4">
           <div className="col-lg-8">
-            <img className="img-fluid rounded" src="https://pi.tedcdn.com/r/tedideas.files.wordpress.com/2017/03/frugal_innovation.png?" alt="Innovation image"/>
+            <img className="img-fluid rounded" src="http://www.goaugment.io/wp-content/uploads/2016/07/Innovation-is-an-Attitude.jpg" alt=""/>
           </div>
           <div className="col-lg-4">
             <h1>Proyectos activos</h1>
@@ -66,7 +65,6 @@ class ProjectsView extends Component {
             <p>Te presentamos los proyectos de innovación en desarrollo en la Universidad de los Andes.
               ¡Puedes aportar en el desarrollo de estos proyectos comentando ideas, aportando recursos o te
               puedes unir al equipo de trabajo!</p>
-            <a className="btn btn-primary btn-lg" href="#">Call to Action!</a>
           </div>
         </div>
 
