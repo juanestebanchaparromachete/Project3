@@ -41,10 +41,6 @@ class SingleProject extends Component {
   handleSubmit(event) {
     event.preventDefault();
     Meteor.call('comments.insert', this.state.value, this.state.task._id);
-    // window.location.href = '/projects';
-    // this.context.router.push('/projects');
-    // this.setState({redirect: true});
-    // Clear form
   }
 
   render() {

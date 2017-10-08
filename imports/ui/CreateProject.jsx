@@ -19,6 +19,14 @@ class CreateProject extends Component {
       stage: 'Gestación'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    let idea = props.location.query;
+    if (idea){
+      console.log(idea)
+      this.state.description = idea.description;
+      this.state.slogan = idea.slogan;
+      this.state.thumbnail = idea.thumbnail;
+      this.state.name = idea.name;
+    }
   }
 
   handleChange(i, event) {
