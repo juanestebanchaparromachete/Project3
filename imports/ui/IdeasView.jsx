@@ -78,9 +78,6 @@ class IdeasView extends Component {
 
         <div className="row">
           {this.renderIdeas()}
-          {this.renderIdeas()}
-          {this.renderIdeas()}
-          {this.renderIdeas()}
         </div>
       </div>
 
