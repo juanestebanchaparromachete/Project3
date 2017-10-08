@@ -27,7 +27,8 @@ Meteor.methods({
 
     task.createdAt = new Date();
     task.owner = Meteor.userId();
-    task.username = Meteor.user().username
+    task.username = Meteor.user().username;
+    task.mail = Meteor.user().mail;
     Tasks.insert(task);
   },
   'tasks.remove'(taskId) {

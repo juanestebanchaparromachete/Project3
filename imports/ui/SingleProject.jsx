@@ -126,7 +126,7 @@ class SingleProject extends Component {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-lg-6">
-                      <button type="submit" onClick={this.sendMail} className="btn btn-primary">Enviar mensaje</button>
+                      <a type="submit" href={"mailto:"+this.state.task.username} className="btn btn-primary">Enviar mensaje</a>
                     </div>
                   </div>
                 </div>
