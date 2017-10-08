@@ -52,7 +52,7 @@ class CreateProject extends Component {
         let uiItems = [];
         for (let i = 0; i < this.state.count; i++) {
             uiItems.push(
-                <div  key={i} style={{display: 'inline'}}>
+                <div key={i} style={{display: 'inline'}}>
 
                         {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
                         <input type="text" value={this.state.value[i] || ''}

@@ -43,6 +43,7 @@ class CreateIdea extends Component {
     }
 
     handleChange(i, event) {
+        this.state.value[i] = event.target.value;
         let value = this.state.value.slice();
         value[i] = event.target.value;
         this.setState({value});
@@ -52,16 +53,22 @@ class CreateIdea extends Component {
         let uiItems = [];
         for (let i = 0; i < this.state.count; i++) {
             uiItems.push(
-                <div className="center-div">
-                    <div className="row" key={i} style={{display: 'inline', width: '100%', "text-align": 'center'}}>
+                <div className="center-div" style={{textAlign: 'center'}} key={i}>
+                    <div className="row"  style={{display: 'inline', textAlign: 'center'}}>
                         {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
                         <select className="form-control" id="exampleSelect1" required style={{display: 'inline'}}
-                                onChange={(e) => this.state.stage = e.target.value} value={this.state.value[i] || ''}
+                                onChange={(e)=>this.handleChange(i,e)} value={this.state.value[i] || ''}
                                 placeholder={'Requerimiento ' + (i + 1) + ' ...'}>
-                            <option>Gestación</option>
-                            <option>Puesta en Marcha</option>
-                            <option>Desarrollo Inicial</option>
-                            <option>Crecimiento y consolidación</option>
+                            <option>Medicina</option>
+                            <option>Ingeniería</option>
+                            <option>Planeación</option>
+                            <option>Software</option>
+                            <option>Imagenes</option>
+                            <option>Biología</option>
+                            <option>Finanzas</option>
+                            <option>Ciencias</option>
+                            <option>Mecánica</option>
+                            <option>Química</option>
                         </select>
                         <input type='button' value='Remover' className="removeReqButton"
                                onClick={this.removeClick.bind(this, i)}/>
@@ -135,9 +142,9 @@ class CreateIdea extends Component {
                         </fieldset>
                         <fieldset>
                             <div>
-                                <label htmlFor="exampleInputEmail1">Lista de requerimientos de t</label><br/>
+                                <label htmlFor="exampleInputEmail1">Tags de la oportunidad</label><br/>
                                 {this.renderRequirements()}
-                                <div style={{"text-align": 'center'}}>
+                                <div style={{textAlign: 'center'}}>
                                     <input type='button' value='Agregar más' id="addMoreButton"
                                            onClick={this.addClick.bind(this)}/>
                                 </div>
