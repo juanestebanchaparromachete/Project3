@@ -11,6 +11,7 @@ class SingleProject extends Component {
 
   constructor(props) {
     super(props);
+    window.scrollTo(0,0);
     this.state = {
       task: props.location.query,
       value: '',
