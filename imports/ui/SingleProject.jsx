@@ -106,6 +106,33 @@ class SingleProject extends Component {
 
             {/*<!-- Sidebar Widgets Column -->*/}
             <div className="col-md-4">
+              {/*<!-- Requirements Widget -->*/}
+              <div className="card my-4">
+                <h5 className="card-header">Requerimientos</h5>
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <ul className="list-unstyled mb-12">
+                        {
+                          this.state.task.requirements.map((task) => {
+                            const currentUserId = this.props.currentUser && this.props.currentUser._id;
+                            // const showPrivateButton = task.owner === currentUserId;
+                            return (
+                              <div>
+                                <li className="col-lg-12" style={{textAlign:'justify'}}>
+                                  {task}
+                                </li>
+                                <hr/>
+                              </div>
+                            );
+                          })
+                        }
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               {/*<!-- Categories Widget -->*/}
               <div className="card my-4">
