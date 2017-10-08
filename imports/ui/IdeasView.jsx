@@ -62,10 +62,9 @@ class IdeasView extends Component {
           </div>
           <div className="col-lg-4">
             <h1>Oportunidades</h1>
-            <i id="sl">Adopta ideas ¡Soluciona problemas!</i>
-            <p>Te presentamos los proyectos de innovación en desarrollo en la Universidad de los Andes.
-              ¡Puedes aportar en el desarrollo de estos proyectos comentando ideas, aportando recursos o te
-              puedes unir al equipo de trabajo!</p>
+            <i id="sl">Adopta ideas ¡Soluciona problemas!</i><br/><br/>
+            <p>Aquí puedes encontrar un conjunto de ideas y problemas que necesitan solución,
+            puedes adotar una oportunidad e iniciar un proyecto.</p>
           </div>
         </div>
 
