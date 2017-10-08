@@ -42,7 +42,7 @@ class SingleProject extends Component {
       Meteor.call(
           'sendEmail',
           'Alice <dianasbeltran@gmail.com>',
-          'felipe.plazas10@gmail.com',
+          'admin@luisplazas.co',
           'Hello from Meteor!',
           'This is a test of Email.send.'
       );
