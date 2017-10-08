@@ -2,8 +2,11 @@ import React, {Component, PropTypes} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from './NavBar.jsx'
 import {Redirect} from 'react-router';
+import {Comments} from '/imports/api/comments.jsx';
+import Comment from "./Comment";
+import {createContainer} from 'meteor/react-meteor-data';
 
-export default class SingleProject extends React.Component {
+class SingleProject extends Component {
 
   constructor(props) {
     super(props);
@@ -11,6 +14,25 @@ export default class SingleProject extends React.Component {
       task: props.location.query,
     }
     console.log(this.state.task)
+  }
+
+  renderComments() {
+    let filteredTasks = this.props.comments;
+    console.log(filteredTasks )
+    // if (this.state.hideCompleted) {
+    //   filteredTasks = filteredTasks.filter(task => !task.checked);
+    // }
+    return filteredTasks.map((task) => {
+      const currentUserId = this.props.currentUser && this.props.currentUser._id;
+      // const showPrivateButton = task.owner === currentUserId;
+
+      return (
+        <Comment
+          key={task._id}
+          comment={task}
+        />
+      );
+    });
   }
 
   render() {
@@ -67,13 +89,8 @@ export default class SingleProject extends React.Component {
                         </div>
 
                         {/*<!-- Single Comment -->*/}
-                        <div className="media mb-4">
-                          <img className="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""/>
-                            <div className="media-body">
-                              <h5 className="mt-0">Commenter Name</h5>
-                              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
+                        {this.renderComments()}
+                        {/*<Comment/>*/}
             </div>
 
             {/*<!-- Sidebar Widgets Column -->*/}
@@ -124,3 +141,14 @@ export default class SingleProject extends React.Component {
     )
   }
 }
+
+export default createContainer(() => {
+  Meteor.subscribe('comments');
+  console.log(Comments.find({}))
+  return {
+    // comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
+    comments: Comments.find({}).fetch(),
+    currentUser: Meteor.user(),
+  };
+  console.log(comments)
+}, SingleProject);
