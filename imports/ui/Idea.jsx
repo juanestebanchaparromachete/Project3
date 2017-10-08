@@ -29,28 +29,10 @@ export default class Idea extends Component {
 
     renderTags() {
         let uiItems = [];
-        for (let i = 0; i < this.state.count; i++) {
+        for (let i = 0; i < this.props.idea.count; i++) {
             uiItems.push(
-                <div className="center-div" style={{textAlign: 'center'}} key={i}>
-                    <div className="row" style={{display: 'inline', textAlign: 'center'}}>
-                        {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
-                        <select className="form-control" id="exampleSelect1" required style={{display: 'inline'}}
-                                onChange={(e) => this.handleChange(i, e)} value={this.state.value[i] || ''}
-                                placeholder={'Requerimiento ' + (i + 1) + ' ...'}>
-                            <option>Medicina</option>
-                            <option>Ingeniería</option>
-                            <option>Planeación</option>
-                            <option>Software</option>
-                            <option>Imagenes</option>
-                            <option>Biología</option>
-                            <option>Finanzas</option>
-                            <option>Ciencias</option>
-                            <option>Mecánica</option>
-                            <option>Química</option>
-                        </select>
-                        <input type='button' value='Remover' className="removeReqButton"
-                               onClick={this.removeClick.bind(this, i)}/>
-                    </div>
+                <div key={i} className="tags">
+                    <a  className="tag">{this.props.idea.value[i] || ''}</a>
                 </div>
             )
         }
@@ -72,6 +54,9 @@ export default class Idea extends Component {
                         <img className="card-img-top" src={this.props.idea.thumbnail} width="200px"
                              alt="Imagen descriptiva proyecto"/>
                         <p className="card-text">{this.props.idea.slogan}</p>
+                    </div>
+                    <div className="tags">
+                        {this.renderTags()}
                     </div>
                     <div className="card-footer">
                         <Link to={{pathname: '/projects/create'}} onChange={(e) => this.deleteThisIdea()} href="#"
