@@ -51,15 +51,19 @@ class SingleProject extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let b = this;
+    let b = this.state.value;
     Meteor.call('comments.insert', this.state.value, this.state.task._id, function (error, result) {
       if (error) {
         Bert.alert( 'Debes iniciar sesión para poder comentar!', 'danger', 'growl-top-right' );
       }
       else{
-        b.state.value = ''
+        console.log(this.refs)
+        b = "";
       }
     });
+    console.log(this.refs)
+    this.setState({value: b})
+    this.forceUpdate();
   }
 
   render() {
@@ -107,7 +111,7 @@ class SingleProject extends Component {
                           <div className="card-body">
                             <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
-                                <textarea className="form-control" required rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
+                                <textarea value={this.state.value} className="form-control" required rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
                               </div>
                               <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
