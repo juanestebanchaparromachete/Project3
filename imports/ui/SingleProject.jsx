@@ -103,7 +103,7 @@ class SingleProject extends Component {
                           <div className="card-body">
                             <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
-                                <textarea className="form-control" rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
+                                <textarea className="form-control" required rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
                               </div>
                               <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
