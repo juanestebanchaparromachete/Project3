@@ -39,3 +39,5 @@ const MainRedirect = () => (
   <Redirect push to="/projects"/>);
 
 export default App;
+// la modularizacion de todos los imports de ui hace que todo tu proyecto este muy bien hecho y dividido en componentes que 
+//le permiten al usuario saber cuales son las funciones de cada parte de codigo que esta escrito en el proyecto
