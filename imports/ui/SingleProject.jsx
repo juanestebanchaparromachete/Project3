@@ -18,7 +18,6 @@ class SingleProject extends Component {
       value: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   renderComments() {
@@ -131,7 +130,7 @@ class SingleProject extends Component {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-lg-6">
-                      <a type="submit" href={"mailto:"+this.state.task.username} className="btn-default">Enviar mensaje</a>
+                      <a type="submit" href={"mailto:"+Meteor.user().emails[0].address} className="btn-default">Enviar mensaje</a>
                     </div>
                   </div>
                 </div>
