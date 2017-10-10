@@ -56,4 +56,5 @@ Meteor.methods({
     Tasks.update(taskId, { $set: { private: setToPrivate } });
   },
 });
-
+// todos los import de API esatan correctamente definidos y se utilizan las funciones que creaste 
+// todo el codigo esta muy ordenado y  es enntendible a la hora de leerlo
