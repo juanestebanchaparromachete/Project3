@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react';
-import Idea from './Idea.jsx';
+import Idea from '../SingleView/Idea.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
 import {ideas} from '/imports/api/ideas.jsx';
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
-import NavBar from './NavBar.jsx'
+import NavBar from '../SmallElements/NavBar.jsx'
 
 // IdeasView component - represents the whole app
 class IdeasView extends Component {

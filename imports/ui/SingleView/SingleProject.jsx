@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 import { Meteor } from 'meteor/meteor';
-import NavBar from './NavBar.jsx'
+import NavBar from '../SmallElements/NavBar.jsx'
 import { Redirect } from 'react-router';
 import { Comments } from '/imports/api/comments';
-import Comment from "./Comment";
+import Comment from "../SmallElements/Comment";
 import { createContainer } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session'
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import AccountsUIWrapper from '../SmallElements/AccountsUIWrapper.jsx';
 
 class SingleProject extends Component {
 
@@ -124,17 +124,35 @@ class SingleProject extends Component {
 
             {/*<!-- Sidebar Widgets Column -->*/}
             <div className="col-md-4">
-                {/*<!-- Participar Widget -->*/}
+
+              {/*<!-- Admin Widget -->*/}
               <div className="card my-4">
-                <h5 className="card-header">Participar</h5>
+                <h5 className="card-header">Administración</h5>
                 <div className="card-body">
                   <div className="row">
                     <div className="col-lg-6">
-                      <a type="submit" href={"mailto:"+Meteor.user().emails[0].address} className="btn-default">Enviar mensaje</a>
+                      <a type="submit" href="#" className="btn-default">Eliminar proyecto</a>
                     </div>
                   </div>
                 </div>
               </div>
+
+                {/*<!-- Participation Widget -->*/}
+              { Meteor.user() ?
+                (
+                <div className="card my-4">
+                  <h5 className="card-header">Participar</h5>
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <a type="submit" href={"mailto:" + Meteor.user().emails[0].address} className="btn-default">Enviar
+                          mensaje</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ) : null
+              }
 
               {/*<!-- Requirements Widget -->*/}
               <div className="card my-4">

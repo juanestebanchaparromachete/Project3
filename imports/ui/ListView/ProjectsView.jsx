@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react';
-import Task from './Task.jsx';
+import Task from '../SmallElements/Task.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Tasks} from '/imports/api/tasks.jsx';
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
-import NavBar from './NavBar.jsx'
+import NavBar from '../SmallElements/NavBar.jsx'
 
 // ProjectsView component - represents the whole app
 class ProjectsView extends Component {
