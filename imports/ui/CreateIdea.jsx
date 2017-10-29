@@ -91,7 +91,6 @@ class CreateIdea extends Component {
       <div>
         <NavBar/>
         <div id="thingId">
-          <AccountsUIWrapper />
         </div>
         <div className="container2">
           <form id="contact" className="form" onSubmit={this.handleSubmit}>
