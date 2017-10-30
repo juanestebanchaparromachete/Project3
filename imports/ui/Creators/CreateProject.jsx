@@ -5,6 +5,7 @@ import {Redirect} from 'react-router';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 
+
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/openinnovation/image/upload';
 
 class CreateProject extends Component {
@@ -109,6 +110,7 @@ class CreateProject extends Component {
     if (this.state.redirect) {
       return <Redirect push to="/projects"/>;
     }
+
     return (
       <div>
         <NavBar/>
