@@ -5,6 +5,7 @@ import {Tasks} from '/imports/api/tasks.jsx';
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import NavBar from '../SmallElements/NavBar.jsx'
+import Captcha from "../SmallElements/Captcha";
 
 // ProjectsView component - represents the whole app
 class ProjectsView extends Component {
@@ -55,6 +56,7 @@ class ProjectsView extends Component {
     return (
       <div>
         <NavBar/>
+        <Captcha/>
         <div className="row my-4">
           <div className="col-lg-8">
             <img className="img-fluid rounded" src="http://www.goaugment.io/wp-content/uploads/2016/07/Innovation-is-an-Attitude.jpg" alt=""/>
