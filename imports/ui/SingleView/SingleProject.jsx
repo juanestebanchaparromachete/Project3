@@ -153,7 +153,7 @@ class SingleProject extends Component {
 
               {/*<!-- Admin Widget -->*/}
               {
-                (this.state.task.username === Meteor.user().username) ?
+                (Meteor.user() && this.state.task.username === Meteor.user().username) ?
                   (
                 <div className="card my-4">
                   <h5 className="card-header">Administración</h5>

@@ -115,11 +115,18 @@ class CreateProject extends Component {
                      placeholder="Descripción..."/>
             </fieldset>
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
-                     value={this.state.thumbnail}
-                     onChange={(event) => this.setState({thumbnail: event.target.value})}
-                     placeholder="Url thumbnail..."/>
+              {/*<ImageUploader*/}
+                {/*withIcon={true}*/}
+                {/*buttonText='Choose images'*/}
+                {/*onChange={this.onDrop}*/}
+                {/*imgExtension={['.jpg', '.gif', '.png', '.gif']}*/}
+                {/*maxFileSize={5242880}*/}
+              {/*/>*/}
+              {/*<input type="text" className="form-control" id="exampleInputEmail1"*/}
+                     {/*aria-describedby="emailHelp" required*/}
+                     {/*value={this.state.thumbnail}*/}
+                     {/*onChange={(event) => this.setState({thumbnail: event.target.value})}*/}
+                     {/*placeholder="Url thumbnail..."/>*/}
             </fieldset>
             <fieldset>
               <div>
