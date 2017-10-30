@@ -16,6 +16,7 @@
     "popper.js": "^1.12.5",
     "react": "^16.0.0",
     "react-addons-pure-render-mixin": "^15.6.2",
+    "react-confirm-alert": "^1.0.8",
     "react-dom": "^16.0.0",
     "react-history": "^0.18.2",
     "react-router": "^4.2.0",

@@ -6,6 +6,8 @@ import { Comments } from '/imports/api/comments';
 import Comment from "../SmallElements/Comment";
 import { createContainer } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session'
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 class SingleProject extends Component {
 
@@ -17,6 +19,7 @@ class SingleProject extends Component {
       value: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteProject = this.deleteProject.bind(this);
   }
 
   renderComments() {
@@ -48,13 +51,27 @@ class SingleProject extends Component {
   }
 
   deleteProject() {
-    Meteor.call(
-      'sendEmail',
-      'Alice <dianasbeltran@gmail.com>',
-      'admin@luisplazas.co',
-      'Hello from Meteor!',
-      'This is a test of Email.send.'
-    );
+    confirmAlert({
+      title: '¿Seguro que quieres borrar este proyecto?',                        // Title dialog
+      message: 'Se eliminará el proyecto, los requerimientos y los comentarios.',               // Message dialog
+      // childrenElement: () => <div>Custom UI</div>,       // Custom UI or Component
+      confirmLabel: 'Confirmar',                           // Text button confirm
+      cancelLabel: 'Cancelar',                             // Text button cancel
+      onConfirm: () => this.submitDelete(),    // Action after Confirm
+      onCancel: () => console.log('nothing'),      // Action after Cancel
+    })
+  }
+
+  submitDelete(){
+    let b = this;
+    Meteor.call('tasks.remove', this.state.task._id, function (error, result) {
+      if (error) {
+        Bert.alert( 'Debes iniciar sesión para poder publicar!', 'danger', 'growl-top-right' );
+      }
+      else{
+        b.setState({task:undefined})
+      }
+    });
   }
 
   handleSubmit(event) {
@@ -143,7 +160,7 @@ class SingleProject extends Component {
                   <div className="card-body">
                     <div className="row">
                       <div className="col-lg-12">
-                        <a type="submit" href="#" id="deleteProjectButt" className="btn-default">Eliminar proyecto</a>
+                        <a type="submit" onClick={() => this.deleteProject()} id="deleteProjectButt" className="btn-default">Eliminar proyecto</a>
                       </div>
                     </div>
                   </div>
