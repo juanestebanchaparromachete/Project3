@@ -61,6 +61,7 @@ class IdeasView extends Component {
             <img className="img-fluid rounded" src="http://www.goaugment.io/wp-content/uploads/2016/07/Innovation-is-an-Attitude.jpg" alt=""/>
           </div>
           <div className="col-lg-4">
+            <br/>
             <h1>Oportunidades</h1>
             <i id="sl">Adopta ideas ¡Soluciona problemas!</i><br/><br/>
             <p>Aquí puedes encontrar un conjunto de ideas y problemas que necesitan solución,
