@@ -13,6 +13,12 @@
     font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
+
+.active {
+    color:            #F8F8F8;
+    background-color: #4f81bd;
+}
+
 #exampleSelect1{
     width: 85% !important;
 }
