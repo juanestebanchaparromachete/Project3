@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import NavBar from '../SmallElements/NavBar.jsx'
 import {Redirect} from 'react-router';
+import Dropzone from 'react-dropzone';
+import axios from 'axios';
+
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/openinnovation/image/upload';
 
 class CreateProject extends Component {
 
@@ -15,6 +19,7 @@ class CreateProject extends Component {
       slogan: '',
       description: '',
       thumbnail: '',
+      uploadedFileCloudinaryUrl: '',
       requirements: [],
       stage: 'Gestación'
     };
@@ -82,6 +87,24 @@ class CreateProject extends Component {
     })
   };
 
+  onDrop(files) {
+    const uploaders = files.map(file => {
+      // Initial FormData
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("tags", `codeinfuse, medium, gist`);
+      formData.append("upload_preset", "rtbdnmmi");
+      formData.append("api_key", "rtbdnmmi");
+      formData.append("timestamp", (Date.now() / 1000) | 0);
+
+      return axios.post("https://api.cloudinary.com/v1_1/openinnovation/image/upload", formData, {
+        headers: {"X-Requested-With": "XMLHttpRequest"},
+      }).then(response => {
+        this.state.thumbnail = response.data.secure_url;
+      })
+    });
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect push to="/projects"/>;
@@ -115,18 +138,13 @@ class CreateProject extends Component {
                      placeholder="Descripción..."/>
             </fieldset>
             <fieldset>
-              {/*<ImageUploader*/}
-                {/*withIcon={true}*/}
-                {/*buttonText='Choose images'*/}
-                {/*onChange={this.onDrop}*/}
-                {/*imgExtension={['.jpg', '.gif', '.png', '.gif']}*/}
-                {/*maxFileSize={5242880}*/}
-              {/*/>*/}
-              {/*<input type="text" className="form-control" id="exampleInputEmail1"*/}
-                     {/*aria-describedby="emailHelp" required*/}
-                     {/*value={this.state.thumbnail}*/}
-                     {/*onChange={(event) => this.setState({thumbnail: event.target.value})}*/}
-                     {/*placeholder="Url thumbnail..."/>*/}
+              <label>Image:</label>
+              <Dropzone
+                multiple={false}
+                accept="image/*"
+                onDrop={this.onDrop.bind(this)}>
+                <p>Drop an image or click to select a file to upload.</p>
+              </Dropzone>
             </fieldset>
             <fieldset>
               <div>
