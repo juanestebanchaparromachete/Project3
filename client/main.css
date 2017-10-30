@@ -138,6 +138,8 @@ p{
 #mainNavBar{
     background-color: #1e262b !important;
     opacity: 1;
+    margin: 10px 10px 10px 10px;
+
 }
 
 .card-footer{
@@ -221,6 +223,10 @@ fieldset {
     min-width: 100%;
     padding: 0;
     width: 100%;
+}
+
+li {
+    margin-left: 15px;
 }
 
 #contact input[type="text"],
