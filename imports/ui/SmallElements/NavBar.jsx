@@ -16,7 +16,7 @@ const NavBar = () => (
         </div>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link className=" navBartext " to='/projects'>Proyectos</Link>
+            <Link className="navBartext " id="projectLink" to='/projects'>Proyectos</Link>
           </li>
           <li className="nav-item">
             <Link className="navBartext" to='/ideas'>Oportunidades</Link>
@@ -37,11 +37,5 @@ const NavBar = () => (
     </div>
   </nav>
 );
-
-$(document).on('scroll', function (e) {
-  let op = 1 - ($(document).scrollTop() / 5000);
-  if (op > 0.65)
-    $('#mainNavBar').css('opacity', op);
-});
 
 export default NavBar;
