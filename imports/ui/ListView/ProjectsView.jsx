@@ -62,6 +62,7 @@ class ProjectsView extends Component {
             <img className="img-fluid rounded" src="http://www.goaugment.io/wp-content/uploads/2016/07/Innovation-is-an-Attitude.jpg" alt=""/>
           </div>
           <div className="col-lg-4">
+            <br/>
             <h1>Proyectos activos</h1>
             <i id="sl">Haz parte de la cultura innovadora Uniandina</i>
             <p>Te presentamos los proyectos de innovación en desarrollo en la Universidad de los Andes.

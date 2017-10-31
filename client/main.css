@@ -101,7 +101,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
     /*background-image: linear-gradient(to bottom, #315481, #918e82 100%);*/
-    padding-top: 58px;
+    padding-top: 150px;
     font-family: sans-serif;
     background-color: #f8f8f8;
     /*background-image: linear-gradient(to bottom, #315481, #918e82 100%);*/
@@ -138,6 +138,8 @@ p{
 #mainNavBar{
     background-color: #1e262b !important;
     opacity: 1;
+    margin: 10px 10px 10px 10px;
+
 }
 
 .card-footer{
@@ -221,6 +223,10 @@ fieldset {
     min-width: 100%;
     padding: 0;
     width: 100%;
+}
+
+li {
+    margin-left: 15px;
 }
 
 #contact input[type="text"],
