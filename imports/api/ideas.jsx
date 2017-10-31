@@ -21,37 +21,18 @@ Meteor.methods({
     check(idea, Object);
 
     // Make sure the user is logged in before inserting a idea
-    // if (! Meteor.userId()) {
-    //   throw new Meteor.Error('not-authorized');
-    // }
+    if (! Meteor.user()) {
+      throw new Meteor.Error('not-authorized');
+    }
 
     idea.createdAt = new Date();
     idea.owner = Meteor.userId();
     idea.username = Meteor.user().username
-    ideas.insert(idea);
+    return ideas.insert(idea);
   },
   'ideas.remove'(ideaId) {
     check(ideaId, String);
 
     ideas.remove(ideaId);
-  },
-  'ideas.setChecked'(ideaId, setChecked) {
-    check(ideaId, String);
-    check(setChecked, Boolean);
-
-    ideas.update(ideaId, { $set: { checked: setChecked } });
-  },
-  'ideas.setPrivate'(ideaId, setToPrivate) {
-    check(ideaId, String);
-    check(setToPrivate, Boolean);
-
-    const idea = ideas.findOne(ideaId);
-
-    // Make sure only the idea owner can make a idea private
-    if (idea.owner !== Meteor.userId()) {
-      throw new Meteor.Error('not-authorized');
-    }
-
-    ideas.update(ideaId, { $set: { private: setToPrivate } });
   },
 });

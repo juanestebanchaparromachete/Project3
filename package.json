@@ -33,6 +33,9 @@
     "superagent": "^3.8.0"
   },
   "devDependencies": {
-    "faker": "^4.1.0"
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.3",
+    "faker": "^4.1.0",
+    "react-test-renderer": "^15.6.2"
   }
 }
