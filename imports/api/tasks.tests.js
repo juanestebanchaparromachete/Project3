@@ -10,7 +10,7 @@ if (Meteor.isServer) {
 
     function createTestTask() {
       let obj = {
-        count: faker.Random,
+        count: faker.random.number(100),
         name: faker.name.findName(),
         slogan: faker.name.findName(),
         description: faker.lorem.sentence(),
@@ -27,14 +27,18 @@ if (Meteor.isServer) {
         resetDatabase();
         Factory.define('user', Meteor.users, {
           username: faker.name.findName(),
+          userId: "j8H12k9l98UjL"
         });
         currentUser = Factory.create('user');
         sinon.stub(Meteor, 'user');
+        sinon.stub(Meteor, 'userId');
+        Meteor.userId.returns(currentUser.userId);
         Meteor.user.returns(currentUser);
-      })
+      });
 
       afterEach(() => {
         Meteor.user.restore();
+        Meteor.userId.restore();
         resetDatabase();
       });
 
@@ -52,7 +56,30 @@ if (Meteor.isServer) {
         assert.deepEqual(tempObject.requirements, retreivedTask.requirements)
         assert.equal(tempObject.stage, retreivedTask.stage)
       })
-    })
+
+      it('Should throw a non-authorized error', function () {
+        Meteor.user.restore();
+        Meteor.userId.restore();
+        resetDatabase();
+        let tempObject = createTestTask();
+        try {
+          Meteor.call('tasks.insert', tempObject)
+          assert.fail();
+        } catch (err){
+          assert(true);
+
+        }
+        Factory.define('user', Meteor.users, {
+          username: faker.name.findName(),
+          userId: "j8H12k9l98UjL"
+        });
+        currentUser = Factory.create('user');
+        sinon.stub(Meteor, 'user');
+        sinon.stub(Meteor, 'userId');
+        Meteor.userId.returns(currentUser.userId);
+        Meteor.user.returns(currentUser);
+      })
+    });
 
     describe('tasks.remove', function () {
 
@@ -62,16 +89,21 @@ if (Meteor.isServer) {
         resetDatabase();
         Factory.define('user', Meteor.users, {
           username: faker.name.findName(),
+          userId: "j8H12k9l98UjL"
         });
         currentUser = Factory.create('user');
         sinon.stub(Meteor, 'user');
+        sinon.stub(Meteor, 'userId');
+        Meteor.userId.returns(currentUser.userId);
         Meteor.user.returns(currentUser);
 
-        tempId = Tasks.insert(createTestTask());
+        let tempObject = createTestTask();
+        tempId = Meteor.call('tasks.insert', tempObject)
       })
 
       afterEach(() => {
         Meteor.user.restore();
+        Meteor.userId.restore();
         resetDatabase();
       });
 
@@ -79,10 +111,32 @@ if (Meteor.isServer) {
         Meteor.call('tasks.remove', tempId)
 
         let retreivedTask = Tasks.find({_id:tempId}).fetch()[0];
-        console.log(retreivedTask)
 
         assert.isUndefined(retreivedTask);
       })
-    })
+
+      it('Should throw a non-authorized error', function () {
+        Meteor.user.restore();
+        Meteor.userId.restore();
+        resetDatabase();
+        Factory.define('user', Meteor.users, {
+          username: faker.name.findName(),
+          userId: "j8H12k9l98Uj2"
+        });
+        currentUser = Factory.create('user');
+        sinon.stub(Meteor, 'user');
+        sinon.stub(Meteor, 'userId');
+        Meteor.userId.returns(currentUser.userId);
+        Meteor.user.returns(currentUser);
+        try {
+          Meteor.call('tasks.remove', tempId)
+          assert.fail();
+        } catch (err){
+          assert(true, 'Should execute this line');
+        }
+
+      })
+    });
+
   })
 }
