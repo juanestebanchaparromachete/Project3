@@ -70,7 +70,7 @@ class IdeasView extends Component {
         </div>
 
         <div className="card text-white bg-secondary my-4 text-center">
-          <div className="card-body">
+          <div className="card-body"  id="midbar">
             <span className="text-white m-0">¡Adopta oportunidades y genera proyectos de alto impacto! </span>
           </div>
         </div>
