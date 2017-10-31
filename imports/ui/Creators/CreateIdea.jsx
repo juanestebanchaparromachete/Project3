@@ -33,7 +33,7 @@ class CreateIdea extends Component {
         <div className="center-div" style={{textAlign: 'center'}} key={i}>
           <div className="row" style={{display: 'inline', textAlign: 'center'}}>
             {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
-            <select className="form-control" id="exampleSelect1" required style={{display: 'inline'}}
+            <select aria-labelledby="tags" className="form-control" id="exampleSelect1" required style={{display: 'inline'}}
                     onChange={(e) => this.handleChange(i, e)} value={this.state.value[i] || ''}
                     placeholder={'Requerimiento ' + (i + 1) + ' ...'}>
               <option>Medicina</option>
@@ -91,39 +91,39 @@ class CreateIdea extends Component {
         <NavBar/>
         <div className="container2">
           <form id="contact" className="form" onSubmit={this.handleSubmit}>
-            <h3>Publica una oportunidad</h3>
+            <h3 id="oport">Publica una oportunidad</h3>
             {/*<h4>Contact us for custom quote</h4>*/}
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
+              <input type="text" className="form-control" id="name"
+                     aria-labelledby="oport" required
                      value={this.state.name}
                      onChange={(event) => this.setState({name: event.target.value})}
                      placeholder="Nombre..."/>
             </fieldset>
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
+              <input type="text" className="form-control" id="slogan"
+                     aria-labelledby="oport" required
                      value={this.state.slogan}
                      onChange={(event) => this.setState({slogan: event.target.value})}
                      placeholder="Slogan..."/>
             </fieldset>
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
+              <input type="text" className="form-control" id="descript"
+                     aria-labelledby="oport" required
                      value={this.state.description}
                      onChange={(event) => this.setState({description: event.target.value})}
                      placeholder="Descripción..."/>
             </fieldset>
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
+              <input type="text" className="form-control" id="val"
+                     aria-labelledby="oport" required
                      value={this.state.thumbnail}
                      onChange={(event) => this.setState({thumbnail: event.target.value})}
                      placeholder="Url thumbnail..."/>
             </fieldset>
             <fieldset>
               <div>
-                <label htmlFor="exampleInputEmail1">Tags de la oportunidad</label><br/>
+                <label id="tags" htmlFor="exampleInputEmail2">Tags de la oportunidad</label><br/>
                 {this.renderRequirements()}
                 <div style={{textAlign: 'center'}}>
                   <input type='button' value='Agregar más' id="addMoreButton"
