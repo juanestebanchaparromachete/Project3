@@ -138,7 +138,7 @@ p{
 #mainNavBar{
     background-color: #1e262b !important;
     opacity: 1;
-    margin: 10px 10px 10px 10px;
+    margin: 0 0 0 0;
 
 }
 
@@ -213,6 +213,10 @@ p{
 
 .form-control{
     font-size: 18px !important;
+}
+
+#midbar{
+    background: darkslategray;
 }
 
 .requirementInput{
