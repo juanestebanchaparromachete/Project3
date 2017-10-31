@@ -48,7 +48,7 @@ class CreateProject extends Component {
           <div className="row" style={{display: 'inline', textAlign: 'center'}}>
             <div key={i} style={{display: 'inline'}}>
               {/*<label htmlFor="exampleInputEmail1">Requerimiento {i + 1} &emsp; </label>*/}
-              <input id="exampleSelect1" type="text" value={this.state.value[i] || ''}
+              <input aria-labelledby="reqs" id="exampleSelect1" type="text" value={this.state.value[i] || ''}
                      placeholder={'Requerimiento ' + (i + 1) + ' ...'}
                      onChange={this.handleChange.bind(this, i)} required className="requirementInput"/>
               <input type='button' value='Remove' className="removeReqButton"
@@ -116,25 +116,25 @@ class CreateProject extends Component {
         <NavBar/>
         <div className="container2">
           <form id="contact" className="form" onSubmit={this.handleSubmit}>
-            <h3>Publica tu proyecto</h3>
+            <h3 id="publica">Publica tu proyecto</h3>
             {/*<h4>Contact us for custom quote</h4>*/}
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
+              <input type="text" className="form-control" id="nomProyecto"
+                     aria-labelledby="publica" required
                      value={this.state.name}
                      onChange={(event) => this.setState({name: event.target.value})}
                      placeholder="Nombre..."/>
             </fieldset>
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
+              <input type="text" className="form-control" id="slogan"
+                     aria-labelledby="publica" required
                      value={this.state.slogan}
                      onChange={(event) => this.setState({slogan: event.target.value})}
                      placeholder="Slogan..."/>
             </fieldset>
             <fieldset>
-              <input type="text" className="form-control" id="exampleInputEmail1"
-                     aria-describedby="emailHelp" required
+              <input type="text" className="form-control" id="description"
+                     aria-labelledby="publica" required
                      value={this.state.description}
                      onChange={(event) => this.setState({description: event.target.value})}
                      placeholder="Descripción..."/>
@@ -145,12 +145,12 @@ class CreateProject extends Component {
                 multiple={false}
                 accept="image/*"
                 onDrop={this.onDrop.bind(this)}>
-                <p>Drop an image or click to select a file to upload.</p>
+                <p>Arrastra una imágen o haz click para seleccionar y subir un archivo.</p>
               </Dropzone>
             </fieldset>
             <fieldset>
               <div>
-                <label htmlFor="exampleInputEmail1">Lista de requerimientos de tu proyecto</label><br/>
+                <label id="reqs"htmlFor="exampleInputEmail1">Lista de requerimientos de tu proyecto</label><br/>
                 {this.renderRequirements()}
                 <div style={{textAlign: 'center'}}>
                   <input type='button' value='Agregar más' id="addMoreButton"
@@ -159,7 +159,8 @@ class CreateProject extends Component {
               </div>
             </fieldset>
             <fieldset>
-              <select className="form-control" id="exampleSelect2" required
+              <label id="etp" htmlFor="exampleInputEmail1">Etapa actual de tu proyecto</label><br/>
+              <select aria-labelledby="etp" className="form-control" id="exampleSelect2" required
                       onChange={(e) => this.state.stage = e.target.value}>
                 <option>Gestación</option>
                 <option>Puesta en Marcha</option>

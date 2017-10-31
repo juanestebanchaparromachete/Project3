@@ -196,6 +196,14 @@ p{
     font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
+#contact-submit{
+    background: darkgreen !important;
+}
+
+#addMoreButton{
+    background: darkgreen !important;
+}
+
 #contact {
     background: #F9F9F9;
     padding: 25px;
