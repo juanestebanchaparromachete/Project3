@@ -3,6 +3,7 @@ import { Tasks } from "./tasks";
 import { assert } from "meteor/practicalmeteor:chai";
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { sinon } from 'meteor/practicalmeteor:sinon';
+import { PublicationCollector } from 'meteor/johanbrook:publication-collector';
 import faker from "faker";
 
 if (Meteor.isServer) {
@@ -79,6 +80,42 @@ if (Meteor.isServer) {
         Meteor.userId.returns(currentUser.userId);
         Meteor.user.returns(currentUser);
       })
+    });
+
+    describe('tasks.publish', function () {
+
+      beforeEach(function () {
+        resetDatabase();
+        Factory.define('user', Meteor.users, {
+          username: faker.name.findName(),
+          userId: "j8H12k9l98UjL"
+        });
+        currentUser = Factory.create('user');
+        sinon.stub(Meteor, 'user');
+        sinon.stub(Meteor, 'userId');
+        Meteor.userId.returns(currentUser.userId);
+        Meteor.user.returns(currentUser);
+      });
+
+      afterEach(() => {
+        Meteor.user.restore();
+        Meteor.userId.restore();
+        resetDatabase();
+      });
+
+      it('Should publish all the created objects', function () {
+        let tempObject = createTestTask();
+        Meteor.call('tasks.insert', tempObject)
+        let tempObject2 = createTestTask();
+        Meteor.call('tasks.insert', tempObject2)
+        const collector = new PublicationCollector();
+        collector.collect('tasks', (collections) => {
+          console.log(collections.tasks);
+          assert.typeOf(collections.tasks, 'array');
+          assert.equal(collections.tasks.length, 2);
+        });
+      })
+
     });
 
     describe('tasks.remove', function () {

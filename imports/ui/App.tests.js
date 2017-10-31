@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { chai } from 'meteor/practicalmeteor:chai';
 // import TodoItem from './TodoItem.jsx';
 
-describe('TodoItem', () => {
+describe('App', () => {
   it('should render', () => {
     // const todo = Factory.build('todo', { text: 'testing', checked: false });
     // const item = shallow(<TodoItem todo={todo} />);

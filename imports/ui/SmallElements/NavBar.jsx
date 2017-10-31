@@ -19,10 +19,10 @@ const NavBar = () => (
             <Link className="navBartext " id="projectLink" to='/projects'>Proyectos</Link>
           </li>
           <li className="nav-item">
-            <Link className="navBartext" to='/ideas'>Oportunidades</Link>
+            <Link className="navBartext" id="optLink" to='/ideas'>Oportunidades</Link>
           </li>
           <li className="nav-item">
-            <Link className="navBartext" to='/projects/create'>Crear Proyecto</Link>
+            <Link className="navBartext" id="createLink" to='/projects/create'>Crear Proyecto</Link>
           </li>
           <li className="nav-item">
             <Link className="navBartext" to='/ideas/create'>Crear oportunidad</Link>
