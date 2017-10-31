@@ -198,10 +198,25 @@ p{
 
 #contact-submit{
     background: darkgreen !important;
+    font-size: 18px !important;
 }
 
 #addMoreButton{
     background: darkgreen !important;
+    font-size: 18px !important;
+}
+
+.removeReqButton{
+    font-size: 18px !important;
+    background: darkred !important;
+}
+
+.form-control{
+    font-size: 18px !important;
+}
+
+.requirementInput{
+    font-size: 18px !important;
 }
 
 #contact {

@@ -51,7 +51,7 @@ class CreateProject extends Component {
               <input aria-labelledby="reqs" id="exampleSelect1" type="text" value={this.state.value[i] || ''}
                      placeholder={'Requerimiento ' + (i + 1) + ' ...'}
                      onChange={this.handleChange.bind(this, i)} required className="requirementInput"/>
-              <input type='button' value='Remove' className="removeReqButton"
+              <input type='button' value='Borrar' className="removeReqButton"
                      onClick={this.removeClick.bind(this, i)}/>
             </div>
           </div>
@@ -140,7 +140,7 @@ class CreateProject extends Component {
                      placeholder="Descripción..."/>
             </fieldset>
             <fieldset>
-              <label>Image:</label>
+              <label>Imagen:</label>
               <Dropzone
                 multiple={false}
                 accept="image/*"
@@ -169,7 +169,7 @@ class CreateProject extends Component {
               </select>
             </fieldset>
             <fieldset>
-              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit
+              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Publicar
               </button>
             </fieldset>
           </form>
