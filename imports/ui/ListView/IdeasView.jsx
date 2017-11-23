@@ -92,3 +92,5 @@ export default createContainer(() => {
     currentUser: Meteor.user(),
   };
 }, IdeasView);
+
+// los compenentes de react se encuentran bien definidos y la estructura de la modularizacion es la mejor ya que estas optimizando la renderizacion de aplicación
