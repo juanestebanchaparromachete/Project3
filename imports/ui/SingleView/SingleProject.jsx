@@ -136,7 +136,7 @@ class SingleProject extends Component {
                           <div className="card-body">
                             <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
-                                <label htmlFor="txa"> text</label>
+                                <label htmlFor="txa" style={{display:'none'}}> text</label>
                                 <textarea id="txa" value={this.state.value} className="form-control" required rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
                               </div>
                               <button type="submit" className="btn btn-primary" style={{color:'white', backgroundColor:'black'}}>Submit</button>
@@ -177,7 +177,9 @@ class SingleProject extends Component {
                   <div className="card-body">
                     <div className="row">
                       <div className="col-lg-6">
-                        <a type="submit" href={"mailto:" + Meteor.user().emails[0].address} className="btn-default">Enviar
+                        <a type="submit" href={"mailto:" + Meteor.user().emails[0].address}
+                           style={{color:'white', backgroundColor:'black'}}
+                           className="btn-default">Enviar
                           mensaje</a>
                       </div>
                     </div>
