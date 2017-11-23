@@ -136,9 +136,10 @@ class SingleProject extends Component {
                           <div className="card-body">
                             <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
-                                <textarea value={this.state.value} className="form-control" required rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
+                                <label htmlFor="txa"> text</label>
+                                <textarea id="txa" value={this.state.value} className="form-control" required rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
                               </div>
-                              <button type="submit" className="btn btn-primary">Submit</button>
+                              <button type="submit" className="btn btn-primary" style={{color:'white', backgroundColor:'black'}}>Submit</button>
                             </form>
                           </div>
                         </div>
@@ -197,12 +198,12 @@ class SingleProject extends Component {
                             const currentUserId = this.props.currentUser && this.props.currentUser._id;
                             // const showPrivateButton = task.owner === currentUserId;
                             return (
-                              <div key={i}>
+
                                 <li className="col-lg-12" style={{textAlign:'justify'}}>
                                   {task}
                                 </li>
-                                <hr/>
-                              </div>
+
+
                             );
                           })
                         }

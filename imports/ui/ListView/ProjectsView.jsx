@@ -81,7 +81,6 @@ class ProjectsView extends Component {
           {this.renderTasks()}
         </div>
       </div>
-
     );
   }
 }

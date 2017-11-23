@@ -110,7 +110,6 @@ if (Meteor.isServer) {
         Meteor.call('tasks.insert', tempObject2)
         const collector = new PublicationCollector();
         collector.collect('tasks', (collections) => {
-          console.log(collections.tasks);
           assert.typeOf(collections.tasks, 'array');
           assert.equal(collections.tasks.length, 2);
         });

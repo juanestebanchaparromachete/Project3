@@ -10,8 +10,8 @@ export default class Task extends Component {
   render() {
 
     const taskClassName = classnames({
-      checked: this.props.task.checked,
-      private: this.props.task.private,
+      // checked: this.props.task.checked,
+      // private: this.props.task.private,
     });
 
     return (

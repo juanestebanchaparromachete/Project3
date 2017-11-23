@@ -15,6 +15,7 @@ describe('Navbar', () => {
 
   it('Should have the proper routing routes', () => {
     const renderedNavBar = shallow(<Navbar/>);
+    console.log(renderedNavBar)
     assert.equal(renderedNavBar.find('#projectLink').prop('to'), '/projects');
     assert.equal(renderedNavBar.find('#optLink').prop('to'), '/ideas');
     assert.equal(renderedNavBar.find('#createLink').prop('to'), '/projects/create');
