@@ -442,3 +442,5 @@ li {
 #deleteProjectButt:active {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
+
+/* todo el css de la aplicacion esta claramente escrito y no se repiten id y se respetan los formatos ademas de la optimizacion de codigo  */
