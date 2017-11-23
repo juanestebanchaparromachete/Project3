@@ -23,6 +23,7 @@ class SingleProject extends Component {
   }
 
   renderComments() {
+
     let filteredTasks = this.props.comments;
     // if (this.state.hideCompleted) {
     //   filteredTasks = filteredTasks.filter(task => !task.checked);
@@ -136,7 +137,7 @@ class SingleProject extends Component {
                           <div className="card-body">
                             <form onSubmit={this.handleSubmit}>
                               <div className="form-group">
-                                <label htmlFor="txa" style={{display:'none'}}> text</label>
+                                <label htmlFor="txa" style={{color:'white'}}> text</label>
                                 <textarea id="txa" value={this.state.value} className="form-control" required rows="3" onChange={(event) => this.setState({value: event.target.value})}></textarea>
                               </div>
                               <button type="submit" className="btn btn-primary" style={{color:'white', backgroundColor:'black'}}>Submit</button>
