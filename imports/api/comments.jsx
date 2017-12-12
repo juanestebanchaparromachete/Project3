@@ -40,3 +40,5 @@ Meteor.methods({
     Comments.remove(ideaId);
   },
 });
+
+// tienes muy organizado cada uno de los compenestes que utilizas en la aplicacion y es seguro cada una de las cciones que realiza el ususario
